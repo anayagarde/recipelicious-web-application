@@ -8,6 +8,7 @@ class ListRecipeComponent extends Component {
         this.state = {
             recipes: []
         }
+        
     }
     componentDidMount(){
         RecipeService.getRecipes().then((res) => {
@@ -15,9 +16,11 @@ class ListRecipeComponent extends Component {
             this.setState({recipes:res.data});
         });
     }
+    
     render() {
         return (
             <div>
+               
                 <h2 className="text-center">Recipe List</h2>
                 <div className="row">
                     <table className="table table-striped table-bordered">
