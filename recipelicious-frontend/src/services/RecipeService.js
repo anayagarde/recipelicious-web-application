@@ -7,9 +7,23 @@ class RecipeService{
         return axios.get(RECIPE_API_BASE_URL);
     }
 
-    createRecipe(recipe){
-        return axios.post(RECIPE_API_BASE_URL,recipe);
+    async createRecipe(recipe){
+        const config = { headers: { "Content-Type": "application/json" } };
+       const data= await axios.post(RECIPE_API_BASE_URL,recipe,config)
+            .then(response => {
+               return response.data
+            })
+            .then(data => {
+               console.log(data)
+            })
+            .catch(error => {
+               console.log(error.response.data.error)
+            })
+
+            return data;
     }
+
+   
 }
 
 export default new RecipeService()

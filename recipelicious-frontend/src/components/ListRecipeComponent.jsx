@@ -23,6 +23,9 @@ class ListRecipeComponent extends Component {
                
                 <h2 className="text-center">Recipe List</h2>
                 <div className="row">
+              
+                
+                
                     <table className="table table-striped table-bordered">
 
                         <thead>
@@ -41,7 +44,8 @@ class ListRecipeComponent extends Component {
                                     <tr key = {recipe.recipeeId}>
                                         <td> {recipe.recipeName}</td>
                                         <td> {recipe.timeRequired}</td>
-                                        <td> {recipe.ingredientName}</td>
+                                        
+                                        <td> {recipe.ingredients.Quantity}</td>
                                         <td> {recipe.method}</td>
 
                                     </tr> 

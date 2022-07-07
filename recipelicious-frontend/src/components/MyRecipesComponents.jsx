@@ -8,6 +8,7 @@ export default function MyRecipesComponents(){
             <div>
                 <div className = "row">
                     <button className="btn btn-primary" onClick={()=> navigate("/add-recipe")}>Add Recipe</button>
+                    
                 </div>
             </div>
         );

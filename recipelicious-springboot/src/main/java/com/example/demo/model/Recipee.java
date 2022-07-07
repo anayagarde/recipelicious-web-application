@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,9 @@ import javax.persistence.Id;
 import javax.persistence.MapKeyColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.JoinColumn;
 
 @Entity
@@ -38,7 +42,9 @@ public class Recipee implements Serializable{
     @MapKeyColumn(name="IngredientName")
     @Column(name="Quantity")
     @CollectionTable(name="ingredients_table", joinColumns= @JoinColumn(name="recipe_id"))
-    Map<String, String> ingredients = new HashMap<String, String>();
+	@JsonProperty("ingredients")
+    Map<String, String> ingredients;// = new HashMap<String, String>();
+	
 	
 	@Column(name="method")
 	private String method;
@@ -48,7 +54,7 @@ public class Recipee implements Serializable{
 	}
 	
 
-	public Recipee(Long recipeeId, String recipeName, String timeRequired, Map<String, String> ingredients,
+	public Recipee(Long recipeeId, String recipeName, String timeRequired,Map<String,String> ingredients,
 			String method) {
 		super();
 		this.recipeeId = recipeeId;
@@ -83,11 +89,11 @@ public class Recipee implements Serializable{
 		this.timeRequired = timeRequired;
 	}
 
-	public Map<String, String> getIngredients() {
+	public Map<String,String> getIngredients() {
 		return ingredients;
 	}
 
-	public void setIngredients(Map<String, String> ingredients) {
+	public void setIngredients(Map<String,String> ingredients) {
 		this.ingredients = ingredients;
 	}
 
