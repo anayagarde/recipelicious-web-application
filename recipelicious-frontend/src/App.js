@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import ListRecipeComponent from './components/ListRecipeComponent';
+import ListRecipesComponent from './components/ListRecipesComponents';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import CreateRecipeComponent from './components/CreateRecipeComponent';
@@ -16,7 +16,7 @@ function App() {
           <div className="container">
             <Routes>
               <Route path = "/"  element= {<MyRecipesComponents/>}></Route>
-              <Route path = "/recipes" element= {<ListRecipeComponent/>}></Route>
+              <Route path = "/recipes" element= {<ListRecipesComponent/>}></Route>
               <Route path = "/add-recipe" element= {<AddRecipeComponent/>}></Route>
             </Routes>
           </div>
