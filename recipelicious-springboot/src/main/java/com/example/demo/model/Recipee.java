@@ -20,13 +20,14 @@ import javax.persistence.MapKeyColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.JoinColumn;
 
 @Entity
 @Table(name="recipes")
-public class Recipee implements Serializable{
+public class Recipee{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
