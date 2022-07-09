@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Container } from '@mui/material';
+import { Container, Divider } from '@mui/material';
 import {Grid} from '@mui/material';
 import {Box} from '@mui/material';
 import {Link} from '@mui/material';
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 export default function FooterComponent(){
 
     return <div className="flex-wrapper">
@@ -11,9 +12,10 @@ export default function FooterComponent(){
             <Container maxWidth="lg">
                 <Grid container spacing={3}>
                     <Grid item xs={30}>
-                        <Box className="text-center" style={{color:"white"}}>Copyright @Recipelicious</Box>
-                        <Box className="text-center" style={{color:"white",marginBottom:"10px"}}>
-                            <Link underline='none' href="/" color="inherit">Home Page</Link>
+                        <Box className="text-center" style={{color:"white",fontFamily:'monospace',fontSize:'20px',marginBottom:"20px",}}>Copyright @Recipelicious</Box>
+                        <Divider style={{color:'white'}}></Divider>
+                        <Box className="text-center" style={{color:"white",marginBottom:"20px",marginTop:'10px'}}>
+                            <Link underline='none' href="/" color="inherit"><HomeRoundedIcon></HomeRoundedIcon>  Home Page</Link>
                         </Box>
                     </Grid>
                 </Grid>

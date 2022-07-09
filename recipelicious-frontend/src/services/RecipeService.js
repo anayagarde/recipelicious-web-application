@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const RECIPE_API_BASE_URL = "http://localhost:8080/api/v1/recipes";
+const RECIPE_API_BASE_URL = "http://localhost:8080/api/recipelicious/recipes";
 class RecipeService{
 
     getRecipes(){

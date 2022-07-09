@@ -12,6 +12,8 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import {useParams} from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 import {Divider} from '@mui/material';
+import CancelIcon from '@mui/icons-material/Cancel';
+import DoneIcon from '@mui/icons-material/Done';
 
 export default function UpdateRecipeComponent() {
 
@@ -133,8 +135,8 @@ export default function UpdateRecipeComponent() {
                             <textarea placeholder="Enter your recipe and steps" name="method" className='form-control'
                             value={method} onChange={(e) => setMethod(e.target.value)}/>
                         </div>
-                        <button className='btn btn-success' onClick={handleSubmit}>Save</button> 
-                        <button className='btn btn-danger' onClick = {cancel.bind()} style={{marginLeft:"10px"}}>Cancel</button>
+                        <button className='btn btn-success' onClick={handleSubmit}><DoneIcon></DoneIcon> Save</button> 
+                        <button className='btn btn-danger' onClick = {cancel.bind()} style={{marginLeft:"10px"}}><CancelIcon></CancelIcon> Cancel</button>
                 
                     </form>
                     </Card.Body>

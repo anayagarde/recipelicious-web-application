@@ -2,9 +2,10 @@ import React, { Component, useEffect } from 'react';
 import RecipeService from '../services/RecipeService';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
-import { Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import {Table} from 'react-bootstrap';
-
+import { Link } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 export default function ViewRecipeComponent() {
@@ -29,9 +30,9 @@ export default function ViewRecipeComponent() {
 
                 <Card style={{ width: '100%'}}>
                     <Card.Body>
-                        <Card.Title style={{textAlign:'center',fontSize:'50px',fontWeight:'bolder',fontFamily:'Helvetica'}}>{recipes.recipeName}</Card.Title>
+                        <Card.Title style={{textAlign:'center',fontSize:'50px',fontWeight:'bold',fontFamily:'fantasy'}}>{recipes.recipeName}</Card.Title>
                         <Card.Img variant="bottom" src={require('./food.jpeg')} />
-                        <Card.Text style={{marginTop:'20px', fontSize:'25px',fontFamily:'Helvetica'}}>
+                        <Card.Text style={{marginTop:'20px', fontSize:'25px',fontFamily:'monospace'}}>
                             <Table striped bordered hover variant='light'>
                                 <tbody>
                                 <tr>
@@ -55,6 +56,8 @@ export default function ViewRecipeComponent() {
                     </Card.Body>
 
                     </Card>
+
+                    <Button style={{fontSize:'20px',marginRight:"10px",marginTop:'20px'}} variant="primary" as={Link} to={`/recipes`}><ArrowBackIcon></ArrowBackIcon> Back to View </Button>
                 
             </div>
         );
