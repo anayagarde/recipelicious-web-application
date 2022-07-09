@@ -22,6 +22,13 @@ class RecipeService{
 
             return data;
     }
+    getRecipeById(recipeId){
+      return axios.get(RECIPE_API_BASE_URL+'/'+recipeId);
+    }
+
+    updateRecipe(recipe,recipeId){
+      return axios.put(RECIPE_API_BASE_URL+'/'+recipeId,recipe);
+    }
 
    
 }

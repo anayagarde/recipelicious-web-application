@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.exceptions.ResourceNotFoundException;
 import com.example.demo.model.Recipee;
 import com.example.demo.model.RecipeeIngredientProjecton;
 import com.example.demo.repository.RecipeRepository;
@@ -46,6 +47,30 @@ public class RecipeController {
 		//Map<String, String> myObjects = recipe.getIngredients();
 		
 		return reciperepository.save(recipe);
+		
+	}
+	
+	@GetMapping("/recipes/{id}")
+	public ResponseEntity<Recipee> getRecipeById(@PathVariable Long id) {
+		Recipee recipe = reciperepository.findById(id)
+				.orElseThrow(()-> new ResourceNotFoundException("Recipe does not exist: "+id));
+		
+		return ResponseEntity.ok(recipe);
+	}
+	
+	// update Recipe 
+	@PutMapping("/recipes/{id}")
+	public ResponseEntity<Recipee> updateRecipe(@PathVariable Long id, @RequestBody Recipee recipeDetails){
+		
+		Recipee recipe = reciperepository.findById(id)
+				.orElseThrow(()-> new ResourceNotFoundException("Recipe does not exist: "+id));
+		recipe.setRecipeName(recipeDetails.getRecipeName());
+		recipe.setTimeRequired(recipeDetails.getTimeRequired());
+		recipe.setIngredients(recipeDetails.getIngredients());
+		recipe.setMethod(recipeDetails.getMethod());
+		
+		Recipee updatedRecipe = reciperepository.save(recipe);
+		return ResponseEntity.ok(updatedRecipe);
 		
 	}
 
