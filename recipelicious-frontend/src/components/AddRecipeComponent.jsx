@@ -8,6 +8,8 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { Card } from 'react-bootstrap';
+import {Divider} from '@mui/material';
 
 export default function AddRecipeComponent() {
 
@@ -60,33 +62,34 @@ export default function AddRecipeComponent() {
     <div>
     <div className='container'>
         <div className='row'>
-            <div className='card col-md-6 offset-md-3 offset-md-3'>
-                <h3 className="text-center"> Add your Recipe!</h3>
-                <div className='card-body'>
+          <Card border="info">
+          <h3 className="text-center" style={{fontWeight:"bolder",margin:'10px',color:'black'}}> Add your Recipe!</h3>
+          <Divider spacing={10} style={{color:'lightseagreen'}}></Divider>
+              <Card.Body>
                     <form>
                         <div className='form-group'>
-                            <label>Recipe Name: </label>
+                            <label style={{fontWeight:'bolder'}}>Recipe Name: </label>
                             <input placeholder="Enter Recipe Name" name="recipeName" className='form-control'
                             value={recipeName} onChange={(e) => setRecipeName(e.target.value)}/>
                         </div>
                         <div className='form-group'>
-                            <label>Time Required: </label>
+                            <label style={{fontWeight:'bolder'}}>Time Required: </label>
                             <input placeholder="Enter Time Required" name="timeRequired" className='form-control'
                             value={timeRequired} onChange={(e) => setTimeRequired(e.target.value)}/>
                         </div>
                         <div className='form-group'>
-                        <label>Ingredients:</label>
+                        <label style={{fontWeight:'bolder'}}>Ingredients:</label>
                             { ingredients.map((ingredients,index)=>
                             <div key = {index}>
         
-                               <TextField 
+                               <TextField style={{marginRight:'5px',marginBottom:'5px',marginTop:'5px'}}
                                 name="IngredientName"
                                 label='Ingredient Name'
                                 value={ingredients.IngredientName} 
                                 onChange={event => handleChangeInput(index,event)}/>
                              
-                             <span>  </span>
-                               <TextField 
+               
+                               <TextField style={{marginRight:'5px',marginBottom:'5px',marginTop:'5px'}}
                                 name="Quantity"
                                 label='Quantity'
                                 value={ingredients.Quantity}
@@ -105,7 +108,7 @@ export default function AddRecipeComponent() {
                         </div>
                         
                         <div className='form-group'>
-                            <label>Method: </label>
+                            <label style={{fontWeight:'bolder'}}>Method: </label>
                             <textarea placeholder="Enter your recipe and steps" name="method" className='form-control'
                             value={method} onChange={(e) => setMethod(e.target.value)}/>
                         </div>
@@ -113,10 +116,12 @@ export default function AddRecipeComponent() {
                         <button className='btn btn-danger' onClick = {cancel.bind()} style={{marginLeft:"10px"}}>Cancel</button>
                 
                     </form>
-                </div>
+                    </Card.Body>
 
-            </div>
+            
+            </Card>
         </div>
+        
     </div>
 
     </div>

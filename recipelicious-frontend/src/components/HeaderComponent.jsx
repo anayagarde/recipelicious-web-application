@@ -8,13 +8,13 @@ function HeaderComponent() {
     <div>
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="/">Recipelicious</Navbar.Brand>
+        <Navbar.Brand href="/" style={{fontSize:'35px',fontWeight:'bolder'}}>Recipelicious</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/add-recipe">Add Recipe</Nav.Link>
-            <Nav.Link as={Link} to="/recipes">View Recipes</Nav.Link>
+            <Nav.Link as={Link} to="/" style={{fontSize:'20px',fontWeight:'bold'}}>Home</Nav.Link>
+            <Nav.Link as={Link} to="/add-recipe" style={{fontSize:'20px',fontWeight:'bold'}}>Add Recipe</Nav.Link>
+            <Nav.Link as={Link} to="/recipes" style={{fontSize:'20px',fontWeight:'bold'}}>View Recipes</Nav.Link>
             
           </Nav>
          
